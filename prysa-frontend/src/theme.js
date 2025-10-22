@@ -8,12 +8,12 @@ const theme = createTheme({
       dark: "#000000",
     },
     secondary: { 
-      main: "#BDA675", // Gold accent
+      main: "#BDA675", 
       light: "#D4C28F",
       dark: "#8A7844", 
     },
     background: { 
-      default: "#F8F8F8", // Light off-white for gallery feel
+      default: "#F8F8F8",
       paper: "#FFFFFF", 
     },
     text: {
@@ -21,10 +21,10 @@ const theme = createTheme({
       secondary: "#555555",
     },
     gallery: {
-      accent1: "#E8E2D5", // Light warm beige
-      accent2: "#BDA675", // Gold accent
-      dark: "#121212",    // Almost black
-      light: "#FAFAFA",   // Almost white
+      accent1: "#E8E2D5", 
+      accent2: "#BDA675", 
+      dark: "#121212",    
+      light: "#FAFAFA",   
     }
   },
   typography: {
@@ -72,13 +72,13 @@ const theme = createTheme({
     },
   },
   shape: {
-    borderRadius: 0, // Square edges for museum aesthetic
+    borderRadius: 0, 
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 0, // Square buttons for gallery aesthetic
+          borderRadius: 0, 
           boxShadow: "none",
           textTransform: "uppercase",
           padding: "10px 24px",
@@ -94,7 +94,7 @@ const theme = createTheme({
         },
         contained: {
           boxShadow: "none",
-          backgroundColor: "#000", // Black for primary buttons
+          backgroundColor: "#000", 
           color: "#fff",
           "&:hover": {
             backgroundColor: "#222",
@@ -116,7 +116,7 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 0, // Square cards for formal gallery aesthetic
+          borderRadius: 0, 
           boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
           overflow: "hidden",
           transition: "all 0.3s ease",
@@ -175,7 +175,7 @@ const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          borderRadius: 0, // Square edges for formal gallery aesthetic
+          borderRadius: 0, 
           boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
           border: "1px solid rgba(0,0,0,0.08)",
           transition: "all 0.3s ease",
@@ -185,7 +185,7 @@ const theme = createTheme({
     MuiAvatar: {
       styleOverrides: {
         root: {
-          borderRadius: 0, // Square avatar for museum aesthetic
+          borderRadius: 0, 
         },
       },
     },
