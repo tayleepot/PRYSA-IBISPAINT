@@ -112,7 +112,6 @@ const FeatureCard = ({ icon, title, description }) => {
 export default function Home() {
   return (
     <Box>
-      {/* Hero Section */}
       <Box
         component={motion.div}
         variants={containerVariants}
@@ -138,10 +137,8 @@ export default function Home() {
                 color: "#000000",
                 fontSize: { xs: '2.5rem', md: '4rem' },
                 textTransform: 'uppercase',
-                letterSpacing: { xs: 2, md: 4 },
-                mb: 4,
-                textTransform: 'uppercase',
-                letterSpacing: 3
+                letterSpacing: 3,
+                mb: 4
               }}
             >
              Prysa IbisPaint E-Manual
@@ -209,7 +206,6 @@ export default function Home() {
         </Box>
       </Box>
 
-      {/* Main Content */}
       <Box sx={{ width: '95%', maxWidth: '2500px', mx: 'auto', px: { xs: 2, sm: 4 } }}>
         <motion.div 
           variants={containerVariants}
@@ -269,7 +265,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Feature Cards */}
         <motion.div
           variants={containerVariants}
           initial="hidden"

@@ -51,17 +51,11 @@ const itemVariants = {
 export default function References() {
   const [tabValue, setTabValue] = useState(0);
   
-  console.log("Video References count:", videoReferences.length);
-  console.log("Official References count:", officialReferences.length);
-  console.log("Book References count:", bookReferences.length);
-  
   const handleTabChange = (event, newValue) => {
-    console.log("Tab changed to:", newValue);
     setTabValue(newValue);
   };
 
   const renderVideoReferences = () => {
-    console.log("Rendering video references", videoReferences.length);
     return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, width: '100%' }}>
       {videoReferences.map((ref, index) => (
@@ -186,8 +180,6 @@ export default function References() {
   };
   
   const renderDocumentation = () => {
-    console.log("Rendering documentation references", officialReferences.length);
-    console.log("Documentation thumbnails:", officialReferences.map(ref => ref.thumbnail));
     return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, width: '100%' }}>
       {officialReferences.map((ref, index) => (
@@ -318,8 +310,6 @@ export default function References() {
   };
 
   const renderBooks = () => {
-    console.log("Rendering book references", bookReferences.length);
-    console.log("Book thumbnails:", bookReferences.map(ref => ref.thumbnail));
     return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, width: '100%' }}>
       {bookReferences.map((ref, index) => (
@@ -558,7 +548,6 @@ export default function References() {
         <Box sx={{ py: 2, width: '100%', position: 'relative', zIndex: 1 }}>
           <Container maxWidth="lg" sx={{ display: 'block' }}>
                 <Box sx={{ width: '100%', display: 'block', position: 'relative' }}>
-              {console.log("Current tab value:", tabValue)}
               {tabValue === 0 && (
                 <Box sx={{ width: '100%', display: 'block' }}>
                   {renderVideoReferences()}
