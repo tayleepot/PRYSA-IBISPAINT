@@ -161,7 +161,7 @@ export default function Navbar() {
                   fontSize: { xs: '1.1rem', md: '1.3rem' },
                 }}
             >
-              Prysa IbisPaint E-Manual
+              IbisPaint E-Manual
             </Typography>
             </motion.div>
           </Box>

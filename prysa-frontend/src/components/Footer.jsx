@@ -43,7 +43,7 @@ export default function Footer() {
               transition={{ duration: 0.5 }}
             >
               <Typography variant="h6" color="white" gutterBottom sx={{ fontWeight: 700, letterSpacing: 1 }}>
-                Prysa IbisPaint E-Manual
+                IbisPaint E-Manual
               </Typography>
               <Typography variant="body2" color="grey.400" sx={{ mb: 2, maxWidth: 280 }}>
                 A comprehensive guide to mastering digital art through IbisPaint X, designed for students

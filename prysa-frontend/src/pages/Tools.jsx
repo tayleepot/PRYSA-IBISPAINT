@@ -17,6 +17,22 @@ import TextFieldsIcon from "@mui/icons-material/TextFields";
 import LayersIcon from "@mui/icons-material/Layers";
 import BlurOnIcon from "@mui/icons-material/BlurOn";
 import FlipIcon from "@mui/icons-material/Flip";
+import FormatColorFillIcon from "@mui/icons-material/FormatColorFill";
+import GestureIcon from "@mui/icons-material/Gesture";
+import TuneIcon from "@mui/icons-material/Tune";
+import PanToolIcon from "@mui/icons-material/PanTool";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import UndoIcon from "@mui/icons-material/Undo";
+import CreateIcon from "@mui/icons-material/Create";
+import HighlightAltIcon from "@mui/icons-material/HighlightAlt";
+import CircleOutlinedIcon from "@mui/icons-material/CircleOutlined";
+import CropSquareIcon from "@mui/icons-material/CropSquare";
+import StraightenIcon from "@mui/icons-material/Straighten";
+import GridOnIcon from "@mui/icons-material/GridOn";
+import FilterIcon from "@mui/icons-material/Filter";
+import PeopleIcon from "@mui/icons-material/People";
+import ImageSearchIcon from "@mui/icons-material/ImageSearch";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -30,15 +46,52 @@ import toolsData from "../data/tools";
 
 function getIconForTool(name) {
   const n = (name || "").toLowerCase();
+  
+  // Drawing Tools
   if (n.includes("brush")) return <BrushIcon />;
-  if (n.includes("eraser") || n.includes("erase")) return <AutoFixHighIcon />;
+  if (n.includes("eraser")) return <AutoFixHighIcon />;
   if (n.includes("color")) return <ColorizeIcon />;
-  if (n.includes("transform") || n.includes("flip") || n.includes("rotate") || n.includes("scale")) return <FlipIcon />;
-  if (n.includes("filter")) return <BlurOnIcon />;
-  if (n.includes("text")) return <TextFieldsIcon />;
-  if (n.includes("lasso") || n.includes("select")) return <SelectAllIcon />;
+  if (n.includes("smudge")) return <GestureIcon />;
+  if (n.includes("blur")) return <BlurOnIcon />;
+  if (n.includes("bucket") || n.includes("fill")) return <FormatColorFillIcon />;
+  
+  // Layer Tools
   if (n.includes("layer")) return <LayersIcon />;
-  if (n.includes("magic") || n.includes("wand")) return <AutoFixHighIcon />;
+  
+  // Editing Tools
+  if (n.includes("transform") || n.includes("move")) return <FlipIcon />;
+  if (n.includes("text")) return <TextFieldsIcon />;
+  if (n.includes("frame") || n.includes("divider")) return <GridOnIcon />;
+  
+  // Canvas Tools
+  if (n.includes("hand")) return <PanToolIcon />;
+  if (n.includes("zoom") || n.includes("rotate")) return <ZoomInIcon />;
+  if (n.includes("undo") || n.includes("redo")) return <UndoIcon />;
+  
+  // Vector Tools
+  if (n.includes("vector") || n.includes("pen")) return <CreateIcon />;
+  if (n.includes("anchor")) return <TuneIcon />;
+  if (n.includes("curve")) return <GestureIcon />;
+  if (n.includes("line") || n.includes("shape")) return <StraightenIcon />;
+  
+  // Selection Tools
+  if (n.includes("lasso")) return <SelectAllIcon />;
+  if (n.includes("magic") || n.includes("wand")) return <AutoAwesomeIcon />;
+  if (n.includes("rectangle")) return <CropSquareIcon />;
+  if (n.includes("circle")) return <CircleOutlinedIcon />;
+  if (n.includes("canvas")) return <ImageSearchIcon />;
+  
+  // Guides & Precision
+  if (n.includes("ruler")) return <StraightenIcon />;
+  if (n.includes("stabilizer")) return <TuneIcon />;
+  if (n.includes("symmetry")) return <GridOnIcon />;
+  
+  // Filter & Effects
+  if (n.includes("filter")) return <FilterIcon />;
+  
+  // Community
+  if (n.includes("ranking") || n.includes("gallery") || n.includes("community")) return <PeopleIcon />;
+  
   return null;
 }
 
@@ -88,6 +141,8 @@ export default function Tools() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [selectedTool, setSelectedTool] = useState(null);
+  const [techniqueOpen, setTechniqueOpen] = useState(false);
+  const [selectedTechnique, setSelectedTechnique] = useState(null);
 
   function handleOpen(tool) {
     setSelectedTool(tool);
@@ -97,6 +152,16 @@ export default function Tools() {
   function handleClose() {
     setOpen(false);
     setSelectedTool(null);
+  }
+
+  function handleTechniqueOpen(tool) {
+    setSelectedTechnique(tool);
+    setTechniqueOpen(true);
+  }
+
+  function handleTechniqueClose() {
+    setTechniqueOpen(false);
+    setSelectedTechnique(null);
   }
 
   return (
@@ -205,7 +270,19 @@ export default function Tools() {
                               flexShrink: 0
                             }}
                           >
-                            {tool.icon ? (
+                            {tool.iconUrl ? (
+                              <Box
+                                component="img"
+                                src={tool.iconUrl}
+                                alt={tool.name}
+                                sx={{
+                                  width: '100%',
+                                  height: '100%',
+                                  objectFit: 'contain',
+                                  p: 0.5
+                                }}
+                              />
+                            ) : tool.icon ? (
                               tool.icon
                             ) : (
                               tool.name
@@ -326,7 +403,19 @@ export default function Tools() {
               fontWeight: 700,
             }}
           >
-            {selectedTool?.icon ? (
+            {selectedTool?.iconUrl ? (
+              <Box
+                component="img"
+                src={selectedTool.iconUrl}
+                alt={selectedTool.name}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  p: 0.5
+                }}
+              />
+            ) : selectedTool?.icon ? (
               selectedTool.icon
             ) : (
               selectedTool?.name
@@ -348,9 +437,36 @@ export default function Tools() {
         </DialogTitle>
 
         <DialogContent sx={{ p: 3 }}>
+          {selectedTool?.image && (
+            <Box
+              sx={{
+                width: '100%',
+                mb: 3,
+                border: '1px solid rgba(0,0,0,0.1)',
+                overflow: 'hidden',
+                '&:hover img': {
+                  transform: 'scale(1.02)',
+                }
+              }}
+            >
+              <Box
+                component="img"
+                src={selectedTool.image}
+                alt={`${selectedTool.name} illustration`}
+                sx={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  transition: 'transform 0.3s ease'
+                }}
+              />
+            </Box>
+          )}
+
           <Typography 
             variant="body1" 
             sx={{ 
+              mt: 2,
               mb: 3,
               color: '#333',
               fontFamily: 'serif',
@@ -361,6 +477,90 @@ export default function Tools() {
           >
             {selectedTool?.desc}
           </Typography>
+
+          <Box sx={{ mb: 4, display: 'flex', gap: 2 }}>
+            <Button 
+              onClick={() => handleTechniqueOpen(selectedTool)}
+              disableRipple
+              sx={{
+                color: '#FFFFFF',
+                backgroundColor: '#000000',
+                textTransform: 'uppercase',
+                letterSpacing: 1,
+                fontSize: '0.85rem',
+                fontWeight: 500,
+                px: 3,
+                py: 1,
+                '&:hover': {
+                  backgroundColor: '#333333',
+                }
+              }}
+            >
+              Learn Technique
+            </Button>
+          </Box>
+
+          {selectedTool?.images && selectedTool.images.length > 0 && (
+            <Box sx={{ mb: 4 }}>
+              <Typography 
+                variant="h6" 
+                sx={{ 
+                  mb: 2,
+                  fontWeight: 500,
+                  letterSpacing: 1,
+                  fontSize: '1rem',
+                  textTransform: 'uppercase'
+                }}
+              >
+                Visual Guide
+              </Typography>
+              <Grid container spacing={2}>
+                {selectedTool.images.map((img, i) => (
+                  img.src && (
+                    <Grid item xs={12} sm={6} key={i}>
+                      <Box
+                        sx={{
+                          border: '1px solid rgba(0,0,0,0.1)',
+                          overflow: 'hidden',
+                          '&:hover img': {
+                            transform: 'scale(1.05)',
+                          }
+                        }}
+                      >
+                        <Box
+                          component="img"
+                          src={img.src}
+                          alt={img.alt}
+                          sx={{
+                            width: '100%',
+                            height: 'auto',
+                            display: 'block',
+                            transition: 'transform 0.3s ease'
+                          }}
+                        />
+                        {img.caption && (
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              display: 'block',
+                              p: 1.5,
+                              bgcolor: 'rgba(0,0,0,0.02)',
+                              fontFamily: 'serif',
+                              fontStyle: 'italic',
+                              textAlign: 'center',
+                              fontSize: '0.85rem'
+                            }}
+                          >
+                            {img.caption}
+                          </Typography>
+                        )}
+                      </Box>
+                    </Grid>
+                  )
+                ))}
+              </Grid>
+            </Box>
+          )}
 
           {selectedTool?.steps && (
             <Box sx={{ mb: 4 }}>
@@ -479,6 +679,134 @@ export default function Tools() {
               bgcolor: 'transparent',
               '&:hover': {
                 bgcolor: 'black',
+              }
+            }}
+          >
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog 
+        open={techniqueOpen} 
+        onClose={handleTechniqueClose} 
+        maxWidth="md" 
+        fullWidth
+        PaperProps={{
+          sx: {
+            borderRadius: 0,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+          }
+        }}
+      >
+        <DialogTitle sx={{ 
+          p: 3, 
+          pb: 2,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 2,
+          borderBottom: '1px solid rgba(0,0,0,0.1)'
+        }}>
+          <Avatar
+            sx={{
+              bgcolor: "rgba(0,0,0,0.05)",
+              color: "#000000",
+              width: 40,
+              height: 40,
+              borderRadius: 0,
+              fontWeight: 700,
+            }}
+          >
+            {selectedTechnique?.iconUrl ? (
+              <Box
+                component="img"
+                src={selectedTechnique.iconUrl}
+                alt={selectedTechnique.name}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  p: 0.5
+                }}
+              />
+            ) : selectedTechnique?.icon ? (
+              selectedTechnique.icon
+            ) : (
+              selectedTechnique?.name
+                .split(" ")
+                .map((s) => s[0])
+                .slice(0, 2)
+                .join("")
+                .toUpperCase()
+            )}
+          </Avatar>
+          <Typography sx={{ 
+            fontWeight: 500,
+            letterSpacing: 1,
+            fontSize: '1.2rem',
+            textTransform: 'uppercase'
+          }}>
+            {selectedTechnique?.name} — Techniques
+          </Typography>
+        </DialogTitle>
+
+        <DialogContent sx={{ p: 3 }}>
+          {selectedTechnique?.technique && Array.isArray(selectedTechnique.technique) && (
+            <Box>
+              <List sx={{ pl: 0 }}>
+                {selectedTechnique.technique.map((t, i) => {
+                  const [title, ...description] = t.split('\n');
+                  return (
+                    <ListItem key={i} sx={{ px: 0, py: 2, flexDirection: 'column', alignItems: 'flex-start' }}>
+                      <Typography 
+                        sx={{
+                          fontFamily: 'serif',
+                          fontWeight: 600,
+                          letterSpacing: 0.5,
+                          fontSize: '1rem',
+                          mb: 1,
+                          color: '#000000'
+                        }}
+                      >
+                        {title}
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontFamily: 'serif',
+                          fontSize: '0.95rem',
+                          lineHeight: 1.7,
+                          color: '#555',
+                          ml: 0
+                        }}
+                      >
+                        {description.join('\n')}
+                      </Typography>
+                    </ListItem>
+                  );
+                })}
+              </List>
+            </Box>
+          )}
+        </DialogContent>
+
+        <DialogActions sx={{ 
+          p: 3, 
+          pt: 2,
+          borderTop: '1px solid rgba(0,0,0,0.1)'
+        }}>
+          <Button 
+            onClick={handleTechniqueClose}
+            disableRipple
+            sx={{
+              color: '#000',
+              textTransform: 'uppercase',
+              letterSpacing: 1,
+              fontSize: '0.85rem',
+              fontWeight: 500,
+              bgcolor: 'transparent',
+              '&:hover': {
+                bgcolor: 'black',
+                color: '#fff'
               }
             }}
           >

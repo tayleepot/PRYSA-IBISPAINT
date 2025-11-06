@@ -122,7 +122,7 @@ export default function Home() {
           position: 'relative',
           py: { xs: 8, md: 12 },
           px: { xs: 2, md: 6 },
-          mb: 12,
+          mb: 0,
           borderBottom: '1px solid rgba(0,0,0,0.08)'
         }}
       >
@@ -141,7 +141,7 @@ export default function Home() {
                 mb: 4
               }}
             >
-             Prysa IbisPaint E-Manual
+             IbisPaint E-Manual
             </Typography>
           </motion.div>
 
@@ -169,7 +169,7 @@ export default function Home() {
                 justifyContent: 'center', 
                 gap: 2, 
                 mt: 5,
-                mb: 3,
+                mb: 1,
                 flexWrap: 'wrap'
               }}
             >
@@ -278,7 +278,8 @@ export default function Home() {
               gutterBottom 
               sx={{ 
                 fontWeight: 600,
-                mb: 4
+                mb: 4,
+                mt: 6
               }}
             >
               Key Features
