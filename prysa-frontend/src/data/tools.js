@@ -1,9 +1,50 @@
 import framedriver from "../assets/tools/framedriver.jpg";
+import framedivider from "../assets/tools/framedivider.jpeg";
 import texttool from "../assets/tools/texttool.jpg";
+import textbeforeafter from "../assets/tools/textbeforeafter.jpeg";
 import transform from "../assets/tools/transform.jpg";
+import transformbefore from "../assets/tools/transformbefore.jpeg";
 import canvas from "../assets/tools/canvas.jpg";
 import filtertool from "../assets/tools/filtertool.jpg";
-import lasso from "../assets/tools/lasso.jpg"
+import lasso from "../assets/tools/lasso.jpg";
+import brushlibrary from "../assets/tools/brushlibrary.jpg";
+import brushtool from "../assets/tools/brushtoollibrary.jpeg";
+import brushstabilation from "../assets/tools/brushstabilation.PNG";
+import brushsensitivity from "../assets/tools/brushsensitivity.PNG";
+import layericon from "../assets/tools/layericon.jpg";
+import layerpanel from "../assets/tools/layerpanel.png";
+import layermode from "../assets/tools/layermode.jpg";
+import layerblending from "../assets/tools/layerblending.jpg";
+import layertexture from "../assets/tools/layertexture.jpg";
+import layerclipping from "../assets/tools/layerclipping.jpg";
+import colorpanel from "../assets/tools/colorpanel.jpg";
+import colorwheel from "../assets/tools/colorwheel.jpg";
+import colorhue from "../assets/tools/colorhue.jpg";
+import colorsaturation from "../assets/tools/colorsaturation.jpg";
+import color1 from "../assets/tools/color1.jpg";
+import color2 from "../assets/tools/color2.jpg";
+import color3 from "../assets/tools/color3.jpg";
+import color4 from "../assets/tools/color4.jpg";
+import color5 from "../assets/tools/color5.jpg";
+import circleselection1 from "../assets/tools/circleselecting1.jpg";
+import circleselection2 from "../assets/tools/circleselecting2.jpg";
+import brightcon from "../assets/tools/brightcon.jpg";
+import huesat from "../assets/tools/huesat.jpg";
+import gaussian from "../assets/tools/gaussian.jpg";
+import unsharp from "../assets/tools/unsharp.jpg";
+import colorbalance from "../assets/tools/colorbalance.jpg";
+import glow from "../assets/tools/glow.jpg";
+import grayscale from "../assets/tools/grayscale.jpg";
+import invert from "../assets/tools/invert.jpg";
+import lasso1 from "../assets/tools/lasso1.jpg";
+import lasso2 from "../assets/tools/lasso2.jpg";
+import magic1 from "../assets/tools/magic1.jpg";
+import magic2 from "../assets/tools/magic2.jpg";
+import rectangle1 from "../assets/tools/rectangle1.jpg";
+import rectangle2 from "../assets/tools/rectangle2.jpg";
+import symmetry1 from "../assets/tools/symmetry1.jpg";
+import symmetry2 from "../assets/tools/symmetry2.jpg";
+import { color } from "framer-motion";
 
 const toolsData = [
   {
@@ -14,11 +55,11 @@ const toolsData = [
         image: null,
         desc: "Fundamental instrument for lines, textures, and colors. Adjust size, opacity, and stabilization for precision and expressive strokes.",
         steps: [
-          "Tap the Brush icon to open the Brush Panel.",
-          "Select a brush from the Brush Library.",
-          "Adjust Size and Opacity sliders for desired effect.",
-          "Enable Stabilization to smooth strokes.",
-          "Use Pressure Sensitivity (if using a stylus) for dynamic lines."
+          { text: "Tap the Brush icon to open the Brush Panel.", image: brushlibrary },
+          { text: "Select a brush from the Brush Library.", image: brushtool },
+          { text: "Adjust Size and Opacity sliders for desired effect.", image: brushsensitivity },
+          { text: "Enable Stabilization to smooth strokes.", image: brushstabilation },
+          { text: "Use Pressure Sensitivity (if using a stylus) for dynamic lines." }
         ],
         tips: [
           "1. Fine-Tune Your Brush — Once your brush is selected, it’s time to perfect its flow. On the right side of your screen, tap the Brush Settings Slider to open customization options. Here, you’ll find two key controls: Size Slider — Drag this up or down to adjust your brush’s thickness, from a delicate whisper to a bold stroke. Opacity Slider — This controls your brush’s transparency. Lower the opacity for soft, buildable shading and blending, or increase it for solid, vibrant lines and colors.",
@@ -78,9 +119,10 @@ const toolsData = [
         name: "Color Tool",
         desc: "Advanced palette selection and mixing.",
         steps: [
-          "Tap the Color icon to open the Color Window.",
-          "Select a hue from the Color Wheel.",
-          "Adjust Saturation and Brightness sliders.",
+          { text: "Tap the Color icon to open the Color Window.", image: colorpanel },
+          { text: "Select a hue from the Color Wheel.", image: colorwheel },
+          { image: colorhue },
+          { text: "Adjust Saturation and Brightness sliders.", image: colorsaturation },
           "Use Eyedropper to pick colors from the canvas."
         ],
         tips: [
@@ -103,7 +145,12 @@ const toolsData = [
           "5. Create Analogous Color Schemes\nSelect colors adjacent on the color wheel for smooth, harmonious transitions. Perfect for gradients and natural blending.",
           "6. Explore Complementary Colors\nChoose colors opposite on the color wheel for vibrant, high-contrast combinations ideal for making elements pop.",
           "7. Save Custom Palettes\nCreate and save personalized color palettes for specific projects. This ensures consistency across your artwork.",
-          "8. Sample from Reference Images\nUse the eyedropper on reference photos to learn real-world color relationships and improve color accuracy in your paintings."
+          "8. Sample from Reference Images\nUse the eyedropper on reference photos to learn real-world color relationships and improve color accuracy in your paintings.",
+          { image: color1 },
+          { image: color2 },
+          { image: color3 },
+          { image: color4 },
+          { image: color5 }
         ]
       },
       {
@@ -203,9 +250,9 @@ const toolsData = [
         name: "Layer Tool",
         desc: "A layer in digital art functions like a transparent sheet of paper. Multiple layers can be stacked, with each containing separate elements of the drawing. This enables the artist to work on one part of the artwork without altering others, thereby improving workflow efficiency and flexibility.",
         steps: [
-          "Tap the Layers Icon — Tap the Layers icon (two stacked squares) located in the toolbar to open the Layers Panel.",
-          "View the Layers Panel — A panel will appear showing all your active layers in the project.",
-          "Understand Layer Order — The top layer appears in front of everything else, while the bottom layer appears behind all other layers.",
+          { text: "Tap the Layers Icon — Tap the Layers icon (two stacked squares) located in the toolbar to open the Layers Panel.", image: layericon },
+          { text: "View the Layers Panel — A panel will appear showing all your active layers in the project.", image: layerpanel },
+          "Understand Layer Order — The top layer appears in front of everything else, while the bottom layer appears behind all other layers."
         ],
         tips: [
           "Opening the Layer Panel — Tap the Layer icon (two stacked squares) to access the list of layers.",
@@ -222,11 +269,11 @@ const toolsData = [
           "ibis Inc. (n.d.). Color Tool — Basics of Coloring. IbisPaint Official Guide. https://ibispaint.com/lecture/index.jsp?topicID=75701400"
         ],
         technique: [
-          "1. Use Layer Masks for Non-Destructive Editing — Apply layer masks to hide or reveal parts of a layer without permanently erasing content.",
-          "2. Experiment with Blending Modes — Change the blending mode of a layer to see how it interacts with layers below for unique effects.",
+          { text: "1. Layer Mode Stacking - Understand how different layer modes (e.g., Normal, Multiply, Add) affect the appearance of layers when stacked.", image: layermode },
+          { text: "2. Experiment with Blending Modes — Change the blending mode of a layer to see how it interacts with layers below for unique effects.", image: layerblending },
           "3. Utilize Adjustment Layers — Use adjustment layers to apply color corrections or effects without altering the original artwork.",
-          "4. Group Layers for Organization — Keep your workspace tidy by grouping related layers together.",
-          "5. Use Clipping Masks for Precise Control — Apply a clipping mask to limit the visibility of a layer to the content of the layer below."
+          { text: "4. Experiment with Textures - Apply texture overlays to layers for added depth and interest.", image: layertexture },
+          { text: "5. Use Clipping Masks for Precise Control — Apply a clipping mask to limit the visibility of a layer to the content of the layer below.", image: layerclipping }
         ]
       },
       {
@@ -281,7 +328,8 @@ const toolsData = [
           "Choose the Transform Tool from the toolbar.",
           "Drag to move the object or use handles to resize and rotate.",
           "Flip, rotate, or distort using options in the tool menu.",
-          "Tap ✓ to confirm or ✗ to cancel."
+          "Tap ✓ to confirm or ✗ to cancel.",
+          { text: "Before and After", image: transformbefore }
         ],
         tips: [
           "Work on separate layers for easy repositioning.",
@@ -320,7 +368,8 @@ const toolsData = [
           "Customize font style, size, and color.",
           "Use the Transform Tool to move or resize the text.",
           "Add shadows, outlines, or gradients as needed.",
-          "Tap ✓ to save changes."
+          "Tap ✓ to save changes.",
+          { text: "Before and After", image: textbeforeafter }
         ],
         tips: [
           "Choose readable fonts that match your art style.",
@@ -361,6 +410,7 @@ const toolsData = [
           "Add Drawings Inside Each Frame — Tap inside a frame to select it, then start drawing. This ensures your artwork stays neatly within the panel borders.",
           "Merge or Delete Frames (Optional) — If needed, you can merge two panels into one or delete a frame by selecting it and tapping the delete icon.",
           "Save or Export — Once done, save your project. The frame dividers remain clean and organized, perfect for comics, layouts, or storyboard designs.",
+          { text: "Before and After", image: framedivider }
         ],
         tips: [
           "Plan your layout before sketching.",
@@ -674,8 +724,8 @@ const toolsData = [
         desc: "Manually draw around areas to select them for editing. Ideal for irregular or freeform shapes requiring precision.",
         steps: [
           "Open your artwork and select the Lasso Tool.",
-          "Draw around the desired area with your finger or stylus.",
-          "Release to confirm selection (dotted lines appear).",
+          { text: "Draw around the desired area with your finger or stylus.", image: lasso1 },
+          { text: "Release to confirm selection (dotted lines appear).", image: lasso2 },
           "Move, resize, or color within the selection.",
           "Tap ‘Deselect’ to remove the selection."
         ],
@@ -710,10 +760,10 @@ const toolsData = [
         desc: "Quickly select areas of similar color with a single tap. Great for coloring flat regions or isolating backgrounds.",
         steps: [
           "Select the Magic Wand Tool from the toolbar.",
-          "Tap the area you want to select.",
+          { text: "Tap the area you want to select.", image: magic1 },
           "Adjust tolerance to include more or fewer color shades.",
           "Use Add/Subtract mode for finer control.",
-          "Apply edits or colors inside the selection.",
+          { text: "Apply edits or colors inside the selection.", image: magic2 },
           "Tap ‘Deselect’ when done."
         ],
         tips: [
@@ -798,8 +848,9 @@ const toolsData = [
         steps: [
           "Tap the Selection icon.",
           "Choose Select Pen.",
-          "Paint over the area you want to select.",
+          {text: "Paint over the area you want to select.", image: rectangle1},
           "Use the Select Eraser to remove excess selection.",
+          {text: "Drag to create a rectangular area.", image: rectangle2}
         ],
         tips: [
           "Hold and drag carefully for straight edges.",
@@ -821,7 +872,9 @@ const toolsData = [
         steps: [
           "Tap the Selection icon.",
           "Choose Circle Selection.",
-          "Drag to create a circular area."
+          { image: circleselection1 },
+          "Drag to create a circular area.",
+          { image: circleselection2 }
         ],
         tips: [
           "Hold and drage evenly for a perfect circle.",
@@ -869,11 +922,13 @@ const toolsData = [
       },
       {
         name: "Symmetry and Radial Shapes",
-        desc: "",
+        desc: "This feature helps create balanced and symmetrical designs by mirroring your strokes across defined axes. It’s perfect for drawing mandalas, faces, or any artwork that requires symmetry.",
         steps: [
           "Use Ellipse or Polygon rulers as a guide.",
           "Lower the opacity of the shape layer to use as a reference.",
           "Draw over it on a new layer to refine or stylize.",
+          {text: "Step 1", image: symmetry1},
+          {text: "Step 2", image: symmetry2},
         ],
         tips: [
           "Start with Basic Shapes — Use circles, rectangles, and triangles to outline your drawing’s main parts before adding details.",
@@ -941,28 +996,28 @@ const toolsData = [
         technique: [
           "Brightness and Contrast — Adjusts how light or dark your artwork appears. Increasing brightness creates a cheerful and lively mood, while lowering it gives a dramatic or moody effect. Adjusting contrast makes colors pop or blend softly.",
           "Tip — Use high brightness for happy scenes and lower brightness for dramatic or emotional artworks.",
-
+          { image: brightcon },
           "Hue and Saturation — Hue changes the color tone, while saturation controls how strong or dull the colors look. Warm hues like red and orange bring energy and excitement, while cool tones like blue and green give a calm or sad feeling.",
           "Tip — Try adjusting hue slightly to match the emotion or theme of your artwork.",
-
+          { image: huesat },
           "Gaussian Blur — Softens edges and blends colors smoothly. Ideal for creating dreamy, nostalgic, or gentle atmospheres, such as backgrounds or glowing lights.",
           "Tip — Apply blur to the background to make the main subject stand out.",
-
+          { image: gaussian },
           "Unsharp Mask — Sharpens edges and enhances details, making your artwork look clearer and more defined. Creates a bold and realistic mood but should be used lightly to avoid harshness.",
           "Tip — Use this filter at low intensity for a clean, natural look.",
-
+          { image: unsharp },
           "Color Balance — Adjust the mix of red, green, and blue tones. Shifting colors can completely change the mood—more blue makes the scene cooler and calmer, more red adds warmth and excitement.",
           "Tip — Adjust color balance to create harmony or highlight certain emotions.",
-
+          { image: colorbalance },
           "Glow (Inner) — Adds light around objects or within shapes, creating a magical, soft, or fantasy-like feeling. Perfect for highlights or dreamy effects.",
           "Tip — Use glow on light sources or shiny elements to enhance realism.",
-
+          { image: glow },
           "Grayscale — Removes colors, leaving only shades of gray. Creates a serious, sad, or classic mood, often used for emotional or dramatic scenes.",
           "Tip — Apply grayscale to test the light and shadow balance in your artwork.",
-
+          { image: grayscale },
           "Invert — Inverts colors, giving your artwork a reversed, surreal look. Often used for eerie, abstract, or experimental effects.",
           "Tip — Use this filter for creative or unusual designs that need a striking look.",
-
+          { image: invert },
           "Tips for Artists — Use filters lightly; subtle changes often look more natural. Combine two or three filters to create your desired emotion or atmosphere. Experiment with different filter settings as each artwork reacts differently depending on color and lighting.",
         ]
       }
@@ -976,22 +1031,22 @@ const toolsData = [
         name: "Monthly Ranking & Online Gallery",
         desc: "The Monthly Ranking (often called the 'monthly leaderboard') in IbisPaint is a system that ranks user-submitted artworks (illustrations, comics, animations) based on their performance over the course of a month. It falls under the broader Leaderboard system, which also includes daily and yearly rankings.",
         images: [
-          { 
+          {
             src: null,
             alt: "Monthly Ranking Leaderboard",
             caption: "Monthly Ranking showcasing top artworks"
           },
-          { 
+          {
             src: null, // Add your featured artworks screenshot here
             alt: "Featured Artworks",
             caption: "Exploring featured artworks for inspiration"
           },
-          { 
+          {
             src: null, // Add your main page screenshot here
             alt: "IbisPaint X Main Page",
             caption: "Main page of ibisPaint X app with online gallery access"
           },
-          { 
+          {
             src: null, // Add your my page screenshot here
             alt: "My Page Sign In",
             caption: "My Page section where you can sign in with your account"

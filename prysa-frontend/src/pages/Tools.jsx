@@ -577,20 +577,52 @@ export default function Tools() {
                 Steps
               </Typography>
               <List sx={{ pl: 2 }}>
-                {selectedTool.steps.map((s, i) => (
-                  <ListItem key={i} sx={{ px: 0, py: 0.5 }}>
-                    <ListItemText 
-                      primary={`${i + 1}. ${s}`}
-                      primaryTypographyProps={{
-                        sx: {
-                          fontFamily: 'serif',
-                          fontSize: '1rem',
-                          lineHeight: 1.7
-                        }
-                      }}
-                    />
-                  </ListItem>
-                ))}
+                {selectedTool.steps.map((s, i) => {
+                  const stepText = typeof s === 'string' ? s : s.text;
+                  const stepImage = typeof s === 'object' ? s.image : null;
+                  
+                  return (
+                    <ListItem key={i} sx={{ px: 0, py: 1, display: 'block' }}>
+                      <ListItemText 
+                        primary={`${i + 1}. ${stepText}`}
+                        primaryTypographyProps={{
+                          sx: {
+                            fontFamily: 'serif',
+                            fontSize: '1rem',
+                            lineHeight: 1.7
+                          }
+                        }}
+                      />
+                      {stepImage && (
+                        <Box
+                          sx={{
+                            mt: 2,
+                            mb: 1,
+                            border: '1px solid rgba(0,0,0,0.1)',
+                            overflow: 'hidden',
+                            maxWidth: '60%',
+                            mx: 'auto',
+                            '&:hover img': {
+                              transform: 'scale(1.02)',
+                            }
+                          }}
+                        >
+                          <Box
+                            component="img"
+                            src={stepImage}
+                            alt={`Step ${i + 1}`}
+                            sx={{
+                              width: '100%',
+                              height: 'auto',
+                              display: 'block',
+                              transition: 'transform 0.3s ease'
+                            }}
+                          />
+                        </Box>
+                      )}
+                    </ListItem>
+                  );
+                })}
               </List>
             </Box>
           )}
@@ -755,7 +787,30 @@ export default function Tools() {
             <Box>
               <List sx={{ pl: 0 }}>
                 {selectedTechnique.technique.map((t, i) => {
-                  const [title, ...description] = t.split('\n');
+                  // Handle objects with only image (no text)
+                  if (typeof t === 'object' && t.image && !t.text) {
+                    return (
+                      <ListItem key={i} sx={{ px: 0, py: 1, justifyContent: 'center' }}>
+                        <Box
+                          component="img"
+                          src={t.image}
+                          alt={`Technique image ${i + 1}`}
+                          sx={{
+                            maxWidth: '60%',
+                            height: 'auto',
+                            borderRadius: 1,
+                            mx: 'auto'
+                          }}
+                        />
+                      </ListItem>
+                    );
+                  }
+
+                  // Handle strings or objects with text
+                  const techniqueText = typeof t === 'string' ? t : t.text;
+                  const techniqueImage = typeof t === 'object' ? t.image : null;
+                  const [title, ...description] = techniqueText.split('\n');
+                  
                   return (
                     <ListItem key={i} sx={{ px: 0, py: 2, flexDirection: 'column', alignItems: 'flex-start' }}>
                       <Typography 
@@ -781,6 +836,20 @@ export default function Tools() {
                       >
                         {description.join('\n')}
                       </Typography>
+                      {techniqueImage && (
+                        <Box
+                          component="img"
+                          src={techniqueImage}
+                          alt={`${title} illustration`}
+                          sx={{
+                            maxWidth: '60%',
+                            height: 'auto',
+                            borderRadius: 1,
+                            mt: 2,
+                            mx: 'auto'
+                          }}
+                        />
+                      )}
                     </ListItem>
                   );
                 })}
