@@ -47,49 +47,32 @@ import toolsData from "../data/tools";
 function getIconForTool(name) {
   const n = (name || "").toLowerCase();
   
-  // Drawing Tools
   if (n.includes("brush")) return <BrushIcon />;
   if (n.includes("eraser")) return <AutoFixHighIcon />;
   if (n.includes("color")) return <ColorizeIcon />;
   if (n.includes("smudge")) return <GestureIcon />;
   if (n.includes("blur")) return <BlurOnIcon />;
   if (n.includes("bucket") || n.includes("fill")) return <FormatColorFillIcon />;
-  
-  // Layer Tools
   if (n.includes("layer")) return <LayersIcon />;
-  
-  // Editing Tools
   if (n.includes("transform") || n.includes("move")) return <FlipIcon />;
   if (n.includes("text")) return <TextFieldsIcon />;
   if (n.includes("frame") || n.includes("divider")) return <GridOnIcon />;
-  
-  // Canvas Tools
   if (n.includes("hand")) return <PanToolIcon />;
   if (n.includes("zoom") || n.includes("rotate")) return <ZoomInIcon />;
   if (n.includes("undo") || n.includes("redo")) return <UndoIcon />;
-  
-  // Vector Tools
   if (n.includes("vector") || n.includes("pen")) return <CreateIcon />;
   if (n.includes("anchor")) return <TuneIcon />;
   if (n.includes("curve")) return <GestureIcon />;
   if (n.includes("line") || n.includes("shape")) return <StraightenIcon />;
-  
-  // Selection Tools
   if (n.includes("lasso")) return <SelectAllIcon />;
   if (n.includes("magic") || n.includes("wand")) return <AutoAwesomeIcon />;
   if (n.includes("rectangle")) return <CropSquareIcon />;
   if (n.includes("circle")) return <CircleOutlinedIcon />;
   if (n.includes("canvas")) return <ImageSearchIcon />;
-  
-  // Guides & Precision
   if (n.includes("ruler")) return <StraightenIcon />;
   if (n.includes("stabilizer")) return <TuneIcon />;
   if (n.includes("symmetry")) return <GridOnIcon />;
-  
-  // Filter & Effects
   if (n.includes("filter")) return <FilterIcon />;
-  
-  // Community
   if (n.includes("ranking") || n.includes("gallery") || n.includes("community")) return <PeopleIcon />;
   
   return null;
@@ -787,7 +770,6 @@ export default function Tools() {
             <Box>
               <List sx={{ pl: 0 }}>
                 {selectedTechnique.technique.map((t, i) => {
-                  // Handle objects with only image (no text)
                   if (typeof t === 'object' && t.image && !t.text) {
                     return (
                       <ListItem key={i} sx={{ px: 0, py: 1, justifyContent: 'center' }}>
@@ -805,8 +787,7 @@ export default function Tools() {
                       </ListItem>
                     );
                   }
-
-                  // Handle strings or objects with text
+                  
                   const techniqueText = typeof t === 'string' ? t : t.text;
                   const techniqueImage = typeof t === 'object' ? t.image : null;
                   const [title, ...description] = techniqueText.split('\n');

@@ -315,7 +315,6 @@ const toolsData = [
     ]
   },
 
-  //EDITING TOOLS
   {
     category: "Editing Tools",
     tools: [
@@ -444,7 +443,6 @@ const toolsData = [
   },
 
 
-  //CANVAS TOOLS
   {
     category: "Canvas Tools",
     tools: [
@@ -553,7 +551,6 @@ const toolsData = [
   },
 
 
-  //VECTOR TOOLS
   {
     category: "Vector Tools",
     tools: [
@@ -714,7 +711,6 @@ const toolsData = [
   },
 
 
-  //SELECTION TOOLS
   {
     category: "Selection Tools",
     tools: [
@@ -894,7 +890,6 @@ const toolsData = [
   },
 
 
-  //GUIDES AND PRECISION TOOLS
   {
     category: "Guides & Precision Tools",
     tools: [
@@ -970,8 +965,6 @@ const toolsData = [
   },
 
 
-
-  // ESSENTIAL DRAWING TOOLA
   {
     category: "Essential Drawing Tools",
     tools: [
@@ -1037,17 +1030,17 @@ const toolsData = [
             caption: "Monthly Ranking showcasing top artworks"
           },
           {
-            src: null, // Add your featured artworks screenshot here
+            src: null, 
             alt: "Featured Artworks",
             caption: "Exploring featured artworks for inspiration"
           },
           {
-            src: null, // Add your main page screenshot here
+            src: null, 
             alt: "IbisPaint X Main Page",
             caption: "Main page of ibisPaint X app with online gallery access"
           },
           {
-            src: null, // Add your my page screenshot here
+            src: null, 
             alt: "My Page Sign In",
             caption: "My Page section where you can sign in with your account"
           }
